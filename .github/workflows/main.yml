@@ -40,6 +40,8 @@ jobs:
   web-test:
     name: Run Web Tests
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     needs: api-test
 
     steps:
@@ -79,7 +81,8 @@ jobs:
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build/reports/tests/test
+
 
 
