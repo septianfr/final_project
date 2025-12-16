@@ -34,6 +34,7 @@ public class checkoutSteps {
     public void setup(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless=new"); // headless mode (wajib di CI)
+        options.addArguments("--incognito"); // 🕶️ Incognito mode
         options.addArguments("--no-sandbox"); // bypass OS security model
         options.addArguments("--disable-dev-shm-usage"); // avoid limited resource in /dev/shm
         options.addArguments("--disable-gpu");
