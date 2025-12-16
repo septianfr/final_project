@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class API Test</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class API Test</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; API Test</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">3.121s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Get invalid data</td>
+<td class="success">0.149s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Invalid appId</td>
+<td class="success">0.130s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Post boundary data</td>
+<td class="success">0.164s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Post valid data</td>
+<td class="success">2.338s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Update user data</td>
+<td class="success">0.340s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+@api
+Scenario: Post valid data                                                                                # src/test/resources/features/api/api.feature:4
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;                                                    # api.steps.apiSteps.the_base_url_is(java.lang.String)
+  When I send a POST request to &quot;/user/create&quot; with the following data, firstName &quot;John&quot;, lastName &quot;Doe&quot; # api.steps.apiSteps.send_post_request_positive(java.lang.String,java.lang.String,java.lang.String)
+  Then the response status code should be 200                                                            # api.steps.apiSteps.the_response_status_code_should_be_200(int)
+Created userId: 69417098accc8115ab1fe765
+  And the response body should contain id                                                                # api.steps.apiSteps.response_body_should_contain_id()
+
+@api
+Scenario: Post boundary data                                                                                  # src/test/resources/features/api/api.feature:10
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;                                                         # api.steps.apiSteps.the_base_url_is(java.lang.String)
+  When I send a boundary POST request to &quot;/user/create&quot; with the following data, firstName &quot;&quot;, lastName &quot;Doe&quot; # api.steps.apiSteps.send_post_request_boundary(java.lang.String,java.lang.String,java.lang.String)
+  Then the response status code should be 400                                                                 # api.steps.apiSteps.the_response_status_code_should_be_200(int)
+
+@api
+Scenario: Get invalid data                            # src/test/resources/features/api/api.feature:15
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot; # api.steps.apiSteps.the_base_url_is(java.lang.String)
+  When I send a GET request to &quot;/user/123192nswaS12&quot;  # api.steps.apiSteps.send_get_request_invalid_user(java.lang.String)
+  Then the response status code should be 400         # api.steps.apiSteps.the_response_status_code_should_be_200(int)
+
+@api
+Scenario: Update user data                                                                            # src/test/resources/features/api/api.feature:20
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;                                                 # api.steps.apiSteps.the_base_url_is(java.lang.String)
+  When I send am PUT request to &quot;/user/6906293e11611e00f239f25c&quot; and update the firstName to &quot;Johnny&quot; # api.steps.apiSteps.update_user_data(java.lang.String,java.lang.String)
+  Then the response status code should be 200                                                         # api.steps.apiSteps.the_response_status_code_should_be_200(int)
+  And the response firstName should be &quot;Johnny&quot;                                                       # api.steps.apiSteps.response_body_should_contain_firstname(java.lang.String)
+
+@api
+Scenario: Invalid appId                                      # src/test/resources/features/api/api.feature:26
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;        # api.steps.apiSteps.the_base_url_is(java.lang.String)
+  When I send a GET request to &quot;/post&quot; with an invalid appId # api.steps.apiSteps.send_get_request_with_invalid_appid(java.lang.String)
+  Then the response status code should be 403                # api.steps.apiSteps.the_response_status_code_should_be_200(int)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14</a> at Dec 16, 2025, 2:46:02 PM</p>
+</div>
+</div>
+</body>
+</html>
