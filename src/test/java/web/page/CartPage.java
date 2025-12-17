@@ -9,13 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class cartPage {
+public class CartPage {
 
     WebDriver driver;
 
     By cartCount = By.className("cart_quantity");
 
-    public cartPage(WebDriver driver){
+    public CartPage(WebDriver driver){
         this.driver = driver;
     }
 

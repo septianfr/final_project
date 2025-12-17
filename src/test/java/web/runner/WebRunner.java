@@ -12,5 +12,5 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:reports/web-reports.html", "json:reports/web-reports.json"},
         monochrome = true
 )
-public class webRunner {}
+public class WebRunner {}
 

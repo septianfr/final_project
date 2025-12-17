@@ -9,13 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class productPage {
+public class ProductPage {
 
     WebDriver driver;
 
     By cartBadge = By.className("shopping_cart_badge");
 
-    public productPage(WebDriver driver){
+    public ProductPage(WebDriver driver){
         this.driver = driver;
     }
 

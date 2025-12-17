@@ -11,12 +11,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import web.page.loginPage;
+import web.page.LoginPage;
 
-public class loginSteps {
+public class LoginSteps {
 
     WebDriver driver;
-    loginPage login;
+    LoginPage login;
 
     @Before
     public void setup(){
@@ -31,39 +31,39 @@ public class loginSteps {
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        login = new loginPage(driver);
+        login = new LoginPage(driver);
     }
 
     @Given("the user is on the login page")
-    public void user_on_login_page() {
+    public void userOnLoginPage() {
         driver.get("https://www.saucedemo.com/");
     }
 
     @When("the user input valid username {string} and password {string}")
     @When("the user input invalid username {string} and password {string}")
-    public void input_username_password(String username, String password) {
+    public void inputUsernamePassword(String username, String password) {
         login.inputUsername(username);
         login.inputPassword(password);
     }
 
     @When("the user leave the username empty and password {string}")
-    public void leave_username_empty(String password) {
+    public void leaveUsernameEmpty(String password) {
         login.inputUsername("");
         login.inputPassword(password);
     }
 
     @And("the user click the login button")
-    public void user_click_button(){
+    public void userClickButton(){
         login.clickLoginButton();
     }
 
     @Then("the user successfully login to the inventory page")
-    public void user_successfully_logged_in() {
+    public void userSuccessfullyLoggedIn() {
         assertTrue(driver.getCurrentUrl().contains("inventory.html"));
     }
 
     @Then("the user will see an error message {string}")
-    public void user_sees_error_message(String expectedMessage) {
+    public void userSeesErrorMessage(String expectedMessage) {
         String actualMessage = login.getMessage();
         assertTrue(actualMessage.toLowerCase().contains(expectedMessage.toLowerCase()));
     }

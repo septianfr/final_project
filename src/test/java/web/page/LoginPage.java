@@ -3,7 +3,7 @@ package web.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class loginPage {
+public class LoginPage {
 
     WebDriver driver;
 
@@ -12,7 +12,7 @@ public class loginPage {
     By loginButton = By.id("login-button");
     By messageBox = By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]");
 
-    public loginPage(WebDriver driver){
+    public LoginPage(WebDriver driver){
 
         this.driver = driver;
     }

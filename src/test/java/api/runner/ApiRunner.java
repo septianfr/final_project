@@ -13,5 +13,5 @@ import org.junit.runner.RunWith;
         monochrome = true
 )
 
-public class apiRunner {
+public class ApiRunner {
 }

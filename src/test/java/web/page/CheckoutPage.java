@@ -55,7 +55,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class checkoutPage {
+public class CheckoutPage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -65,7 +65,7 @@ public class checkoutPage {
     By enterZipCode = By.xpath("//*[@id='postal-code']");
     By continueBtn = By.id("continue");
 
-    public checkoutPage(WebDriver driver){
+    public CheckoutPage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }

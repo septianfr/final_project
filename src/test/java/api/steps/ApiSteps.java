@@ -3,7 +3,6 @@ package api.steps;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,7 +11,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 
-public class apiSteps {
+public class ApiSteps {
 
         String baseUrl;
         String appId = "63a804408eb0cb069b57e43a";
@@ -21,12 +20,12 @@ public class apiSteps {
         String createdUserId;
 
         @Given("the base URL is {string}")
-        public void the_base_url_is(String url) {
+        public void theBaseUrlIs(String url) {
             baseUrl = url;
         }
 
         @When("I send a POST request to {string} with the following data, firstName {string}, lastName {string}")
-        public void send_post_request_positive(String endpoint, String firstName, String lastName) {
+        public void sendPostRequestPositive(String endpoint, String firstName, String lastName) {
 
             JSONObject bodyObj = new JSONObject();
 
@@ -47,7 +46,7 @@ public class apiSteps {
         }
 
         @When("I send a boundary POST request to {string} with the following data, firstName {string}, lastName {string}")
-        public void send_post_request_boundary(String endpoint, String firstName, String lastName) {
+        public void sendPostRequestBoundary(String endpoint, String firstName, String lastName) {
 
             JSONObject bodyObj = new JSONObject();
 
@@ -68,7 +67,7 @@ public class apiSteps {
         }
 
         @When("I send a GET request to {string}")
-            public void send_get_request_invalid_user(String endpoint) {
+            public void sendGetRequestInvalidUser(String endpoint) {
 
             response = RestAssured.given()
                     .header("app-id", appId)
@@ -84,7 +83,7 @@ public class apiSteps {
         }
 
         @When("I send am PUT request to {string} and update the firstName to {string}")
-            public void update_user_data(String endpoint, String updatedFirstName) {
+            public void updateUserData(String endpoint, String updatedFirstName) {
 
             JSONObject bodyObj = new JSONObject();
 
@@ -100,7 +99,7 @@ public class apiSteps {
         }
 
         @When("I send a GET request to {string} with an invalid appId")
-            public void send_get_request_with_invalid_appid(String endpoint) {
+            public void sendGetRequestWithInvalidAppid(String endpoint) {
 
             response = RestAssured.given()
                     .header("app-id", invalidAppId)
@@ -111,12 +110,12 @@ public class apiSteps {
         }
 
         @Then("the response status code should be {int}")
-        public void the_response_status_code_should_be_200(int statusCode) {
+        public void theResponseStatusCodeShouldBe200(int statusCode) {
             assertThat(response.getStatusCode(), is(statusCode));
         }
 
         @And("the response body should contain id")
-            public void response_body_should_contain_id() {
+            public void responseBodyShouldContainId() {
                 if(response.getStatusCode() == 200) {
                     createdUserId = response.jsonPath().getString("id");
                     System.out.println("Created userId: " + createdUserId);
@@ -124,7 +123,7 @@ public class apiSteps {
         }
 
         @And("the response firstName should be {string}")
-            public void response_body_should_contain_firstname(String expectedName) {
+            public void responseBodyShouldContainFirstname(String expectedName) {
                 String actualName = response.jsonPath().getString("firstName");
                 assert actualName.equals(expectedName) :
                     "Expected firstName: " + expectedName + ", but got: " + actualName;
