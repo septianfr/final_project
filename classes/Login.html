@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">2.417s</div>
+<div class="counter">2.617s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,17 +82,17 @@
 </thead>
 <tr>
 <td class="success">Login with empty username</td>
-<td class="success">0.784s</td>
+<td class="success">0.855s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Login with invalid data</td>
-<td class="success">0.840s</td>
+<td class="success">0.870s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Login with valid data</td>
-<td class="success">0.793s</td>
+<td class="success">0.892s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -103,41 +103,41 @@
 <pre>
 @web
 Scenario: Login with valid data                                                  # src/test/resources/features/web/login.feature:4
-  Given the user is on the login page                                            # web.steps.loginSteps.user_on_login_page()
-  When the user input valid username &quot;standard_user&quot; and password &quot;secret_sauce&quot; # web.steps.loginSteps.input_username_password(java.lang.String,java.lang.String)
-  And the user click the login button                                            # web.steps.loginSteps.user_click_button()
-  Then the user successfully login to the inventory page                         # web.steps.loginSteps.user_successfully_logged_in()
+  Given the user is on the login page                                            # web.steps.LoginSteps.userOnLoginPage()
+  When the user input valid username &quot;standard_user&quot; and password &quot;secret_sauce&quot; # web.steps.LoginSteps.inputUsernamePassword(java.lang.String,java.lang.String)
+  And the user click the login button                                            # web.steps.LoginSteps.userClickButton()
+  Then the user successfully login to the inventory page                         # web.steps.LoginSteps.userSuccessfullyLoggedIn()
 
 @web
 Scenario: Login with invalid data                                              # src/test/resources/features/web/login.feature:10
-  Given the user is on the login page                                          # web.steps.loginSteps.user_on_login_page()
-  When the user input invalid username &quot;standard_user&quot; and password &quot;secret&quot;   # web.steps.loginSteps.input_username_password(java.lang.String,java.lang.String)
-  And the user click the login button                                          # web.steps.loginSteps.user_click_button()
-  Then the user will see an error message &quot;username and password do not match&quot; # web.steps.loginSteps.user_sees_error_message(java.lang.String)
+  Given the user is on the login page                                          # web.steps.LoginSteps.userOnLoginPage()
+  When the user input invalid username &quot;standard_user&quot; and password &quot;secret&quot;   # web.steps.LoginSteps.inputUsernamePassword(java.lang.String,java.lang.String)
+  And the user click the login button                                          # web.steps.LoginSteps.userClickButton()
+  Then the user will see an error message &quot;username and password do not match&quot; # web.steps.LoginSteps.userSeesErrorMessage(java.lang.String)
 
 @web
 Scenario: Login with empty username                                  # src/test/resources/features/web/login.feature:16
-  Given the user is on the login page                                # web.steps.loginSteps.user_on_login_page()
-  When the user leave the username empty and password &quot;secret_sauce&quot; # web.steps.loginSteps.leave_username_empty(java.lang.String)
-  And the user click the login button                                # web.steps.loginSteps.user_click_button()
-  Then the user will see an error message &quot;Username is required&quot;     # web.steps.loginSteps.user_sees_error_message(java.lang.String)
+  Given the user is on the login page                                # web.steps.LoginSteps.userOnLoginPage()
+  When the user leave the username empty and password &quot;secret_sauce&quot; # web.steps.LoginSteps.leaveUsernameEmpty(java.lang.String)
+  And the user click the login button                                # web.steps.LoginSteps.userClickButton()
+  Then the user will see an error message &quot;Username is required&quot;     # web.steps.LoginSteps.userSeesErrorMessage(java.lang.String)
 </pre>
 </span>
 </div>
 <div class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Dec 16, 2025 3:18:04 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+<pre>Dec 17, 2025 3:50:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-Dec 16, 2025 3:18:04 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Dec 17, 2025 3:50:22 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.40. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-Dec 16, 2025 3:18:05 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Dec 17, 2025 3:50:23 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-Dec 16, 2025 3:18:05 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Dec 17, 2025 3:50:23 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.40. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-Dec 16, 2025 3:18:06 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Dec 17, 2025 3:50:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 143
-Dec 16, 2025 3:18:06 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Dec 17, 2025 3:50:24 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 143.0.7499.40. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 </pre>
 </span>
@@ -150,7 +150,7 @@ WARNING: Unable to find version of CDP to use for 143.0.7499.40. You may need to
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.14</a> at Dec 16, 2025, 3:18:07 PM</p>
+<a href="https://www.gradle.org">Gradle 8.14</a> at Dec 17, 2025, 3:50:25 PM</p>
 </div>
 </div>
 </body>

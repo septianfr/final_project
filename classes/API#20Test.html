@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">3.432s</div>
+<div class="counter">4.525s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,27 +79,27 @@
 </thead>
 <tr>
 <td class="success">Get invalid data</td>
-<td class="success">0.428s</td>
+<td class="success">0.178s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Invalid appId</td>
-<td class="success">0.141s</td>
+<td class="success">0.175s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Post boundary data</td>
-<td class="success">0.187s</td>
+<td class="success">2.106s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Post valid data</td>
-<td class="success">2.505s</td>
+<td class="success">1.867s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Update user data</td>
-<td class="success">0.171s</td>
+<td class="success">0.199s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -110,36 +110,36 @@
 <pre>
 @api
 Scenario: Post valid data                                                                                # src/test/resources/features/api/api.feature:4
-  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;                                                    # api.steps.apiSteps.the_base_url_is(java.lang.String)
-  When I send a POST request to &quot;/user/create&quot; with the following data, firstName &quot;John&quot;, lastName &quot;Doe&quot; # api.steps.apiSteps.send_post_request_positive(java.lang.String,java.lang.String,java.lang.String)
-  Then the response status code should be 200                                                            # api.steps.apiSteps.the_response_status_code_should_be_200(int)
-Created userId: 694178170abfe40c69f15a2a
-  And the response body should contain id                                                                # api.steps.apiSteps.response_body_should_contain_id()
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;                                                    # api.steps.ApiSteps.theBaseUrlIs(java.lang.String)
+  When I send a POST request to &quot;/user/create&quot; with the following data, firstName &quot;John&quot;, lastName &quot;Doe&quot; # api.steps.ApiSteps.sendPostRequestPositive(java.lang.String,java.lang.String,java.lang.String)
+  Then the response status code should be 200                                                            # api.steps.ApiSteps.theResponseStatusCodeShouldBe200(int)
+Created userId: 6942d12f8802cd4fb191368e
+  And the response body should contain id                                                                # api.steps.ApiSteps.responseBodyShouldContainId()
 
 @api
 Scenario: Post boundary data                                                                                  # src/test/resources/features/api/api.feature:10
-  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;                                                         # api.steps.apiSteps.the_base_url_is(java.lang.String)
-  When I send a boundary POST request to &quot;/user/create&quot; with the following data, firstName &quot;&quot;, lastName &quot;Doe&quot; # api.steps.apiSteps.send_post_request_boundary(java.lang.String,java.lang.String,java.lang.String)
-  Then the response status code should be 400                                                                 # api.steps.apiSteps.the_response_status_code_should_be_200(int)
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;                                                         # api.steps.ApiSteps.theBaseUrlIs(java.lang.String)
+  When I send a boundary POST request to &quot;/user/create&quot; with the following data, firstName &quot;&quot;, lastName &quot;Doe&quot; # api.steps.ApiSteps.sendPostRequestBoundary(java.lang.String,java.lang.String,java.lang.String)
+  Then the response status code should be 400                                                                 # api.steps.ApiSteps.theResponseStatusCodeShouldBe200(int)
 
 @api
 Scenario: Get invalid data                            # src/test/resources/features/api/api.feature:15
-  Given the base URL is &quot;https://dummyapi.io/data/v1&quot; # api.steps.apiSteps.the_base_url_is(java.lang.String)
-  When I send a GET request to &quot;/user/123192nswaS12&quot;  # api.steps.apiSteps.send_get_request_invalid_user(java.lang.String)
-  Then the response status code should be 400         # api.steps.apiSteps.the_response_status_code_should_be_200(int)
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot; # api.steps.ApiSteps.theBaseUrlIs(java.lang.String)
+  When I send a GET request to &quot;/user/123192nswaS12&quot;  # api.steps.ApiSteps.sendGetRequestInvalidUser(java.lang.String)
+  Then the response status code should be 400         # api.steps.ApiSteps.theResponseStatusCodeShouldBe200(int)
 
 @api
 Scenario: Update user data                                                                            # src/test/resources/features/api/api.feature:20
-  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;                                                 # api.steps.apiSteps.the_base_url_is(java.lang.String)
-  When I send am PUT request to &quot;/user/6906293e11611e00f239f25c&quot; and update the firstName to &quot;Johnny&quot; # api.steps.apiSteps.update_user_data(java.lang.String,java.lang.String)
-  Then the response status code should be 200                                                         # api.steps.apiSteps.the_response_status_code_should_be_200(int)
-  And the response firstName should be &quot;Johnny&quot;                                                       # api.steps.apiSteps.response_body_should_contain_firstname(java.lang.String)
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;                                                 # api.steps.ApiSteps.theBaseUrlIs(java.lang.String)
+  When I send am PUT request to &quot;/user/6906293e11611e00f239f25c&quot; and update the firstName to &quot;Johnny&quot; # api.steps.ApiSteps.updateUserData(java.lang.String,java.lang.String)
+  Then the response status code should be 200                                                         # api.steps.ApiSteps.theResponseStatusCodeShouldBe200(int)
+  And the response firstName should be &quot;Johnny&quot;                                                       # api.steps.ApiSteps.responseBodyShouldContainFirstname(java.lang.String)
 
 @api
 Scenario: Invalid appId                                      # src/test/resources/features/api/api.feature:26
-  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;        # api.steps.apiSteps.the_base_url_is(java.lang.String)
-  When I send a GET request to &quot;/post&quot; with an invalid appId # api.steps.apiSteps.send_get_request_with_invalid_appid(java.lang.String)
-  Then the response status code should be 403                # api.steps.apiSteps.the_response_status_code_should_be_200(int)
+  Given the base URL is &quot;https://dummyapi.io/data/v1&quot;        # api.steps.ApiSteps.theBaseUrlIs(java.lang.String)
+  When I send a GET request to &quot;/post&quot; with an invalid appId # api.steps.ApiSteps.sendGetRequestWithInvalidAppid(java.lang.String)
+  Then the response status code should be 403                # api.steps.ApiSteps.theResponseStatusCodeShouldBe200(int)
 </pre>
 </span>
 </div>
@@ -151,7 +151,7 @@ Scenario: Invalid appId                                      # src/test/resource
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.14</a> at Dec 16, 2025, 3:18:07 PM</p>
+<a href="https://www.gradle.org">Gradle 8.14</a> at Dec 17, 2025, 3:50:25 PM</p>
 </div>
 </div>
 </body>
